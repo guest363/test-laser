@@ -1,5 +1,6 @@
 <script lang="ts">
-  /* component logic will go here */
+  import { prepareJson } from './support/prepare-json';
+  prepareJson(JSON.stringify({}))
 </script>
 
 <style>
