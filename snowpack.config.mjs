@@ -1,27 +1,22 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
   mount: {
-    public: { url: "/build", static: true },
-    src: { url: "/src" },
+    public: { url: "/", static: true },
+    src: { url: "/" },
   },
-  plugins: [
-    "@snowpack/plugin-svelte",
-    "@snowpack/plugin-dotenv",
-    [
-      "@snowpack/plugin-typescript",
-      {
-        /* Yarn PnP workaround: see https://www.npmjs.com/package/@snowpack/plugin-typescript */
-        ...(process.versions.pnp ? { tsc: "yarn pnpify tsc" } : {}),
-      },
-    ],
-  ],
+  extends: "@snowpack/app-scripts-svelte",
+  plugins: ["@snowpack/plugin-svelte", "@snowpack/plugin-typescript"],
   routes: [
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
   ],
   optimize: {
-    /* Example: Bundle your final build: */
-    // "bundle": true,
+    manifest: true,
+    splitting: true,
+    treeshake: true,
+    minify: true,
+    bundle: true,
+    target: "es2018",
   },
   packageOptions: {
     /* ... */
