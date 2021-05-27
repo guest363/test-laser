@@ -1,0 +1,28 @@
+{
+  "name": "test-lasers",
+  "version": "1.0.0",
+  "description": "test to ire polus",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc && node --es-module-specifier-resolution=node build/app.js",
+    "build": "tsc",
+    "start": "node --es-module-specifier-resolution=node ./build/app.js",
+    "test": "tsc && SET NODE_ENV=test && node ./node_modules/mocha/bin/mocha --timeout 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guest363/test-laser.git"
+  },
+  "author": "Oleg Moiseev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guest363/test-laser/issues"
+  },
+  "homepage": "https://github.com/guest363/test-laser#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2",
+    "socket.io-client": "^4.1.2",
+    "ts-node": "^10.0.0"
+  }
+}
