@@ -13,6 +13,7 @@ export const SOCKET = new Server(httpServer, {
 SOCKET.on("connection", (socket) => {
   const createEndPoints = () => {
     socket.on("json", (req) => routerJSON(req, socket));
+    
   };
   try {
     createEndPoints();

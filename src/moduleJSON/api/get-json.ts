@@ -1,12 +1,9 @@
-import fs from "fs";
 import type { Socket } from "socket.io";
 import { COMMON_SOCKET_ERROR, DB } from "../../constants";
-import { errorAction } from "../../support/error-action";
 import { prepareJson } from "../../support/prepare-json";
+import { readFile } from "../../support/read-file";
 import { jsonSocketClientMessages } from "../socket-client-events";
-const errorMessages = {
-  ENOENT: `DB is not accessed, posible remove json`,
-};
+
 interface getJSONI {
   socket: Socket;
 }
@@ -14,10 +11,7 @@ interface getJSONI {
  * Запросить JSON для построения UI
  */
 export const getJSON = async (props: getJSONI) => {
-  if (!fs.existsSync(DB)) {
-    errorAction(errorMessages["ENOENT"]);
-  }
-  const data = await fs.promises.readFile(DB, "utf8");
+  const data = await readFile(DB);
 
   try {
     const dataToUi = prepareJson(data);
