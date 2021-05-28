@@ -1,4 +1,5 @@
 import type { Socket } from "socket.io";
+import { COMMON_SOCKET_ERROR } from "../constants";
 
 const METHOD_ERROR = "Server communication method error";
 interface safeLaunchI {
@@ -18,10 +19,7 @@ export const safeLaunchSocketAction = ({
   data,
 }: safeLaunchI) => {
   if (!actions.hasOwnProperty(action))
-    return socket.emit("ERROR", {
-      type: "error",
-      message: METHOD_ERROR,
-    });
+    return socket.emit(COMMON_SOCKET_ERROR, METHOD_ERROR);
 
   const props = {
     data: data,

@@ -1,6 +1,6 @@
 import fs from "fs";
 import type { Socket } from "socket.io";
-import { DB } from "../../constants";
+import { COMMON_SOCKET_ERROR, DB } from "../../constants";
 import { errorAction } from "../../support/error-action";
 import { prepareJson } from "../../support/prepare-json";
 import { jsonSocketClientMessages } from "../socket-client-events";
@@ -24,6 +24,6 @@ export const getJSON = async (props: getJSONI) => {
     console.log(dataToUi);
     props.socket.emit(jsonSocketClientMessages.update, dataToUi);
   } catch (error) {
-    props.socket.emit(jsonSocketClientMessages.notify, "Error get ui state");
+    props.socket.emit(COMMON_SOCKET_ERROR, "Error get ui state");
   }
 };
