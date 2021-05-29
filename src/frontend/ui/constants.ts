@@ -1,5 +1,6 @@
 import io from "socket.io-client";
-import { IO_PATH } from "../constants";
+import { IO_PATH } from "../../backend/constants";
+
 const IO_URL = (() => {
   if (process.env.NODE_ENV == "development") {
     return "http://127.0.0.1:2000";

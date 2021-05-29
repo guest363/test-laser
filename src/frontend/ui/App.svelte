@@ -1,7 +1,6 @@
 <script lang="ts">
-import { jsonSocketClientMessages } from "../socket-client-events";
+import { jsonSocketClientMessages } from "../../backend/socket-client-events";
 import { socket } from "./constants";
-
 
  socket.on(jsonSocketClientMessages.update, (respons) => {
   console.log(respons);
