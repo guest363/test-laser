@@ -1,9 +1,10 @@
 import type { Socket } from "socket.io";
 import { COMMON_SOCKET_ERROR, DB } from "../../constants";
+import { jsonSocketClientMessages } from "../../socket-client-events";
 import { readFile } from "../../support/read-file";
 import { writeFile } from "../../support/write-file";
-import { jsonSocketClientMessages } from "../socket-client-events";
 import type { prepareJsonExportI } from "../types/json-parce";
+
 interface updateJSONI {
   socket: Socket;
   data: prepareJsonExportI | string;

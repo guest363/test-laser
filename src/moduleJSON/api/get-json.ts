@@ -1,8 +1,8 @@
 import type { Socket } from "socket.io";
 import { COMMON_SOCKET_ERROR, DB } from "../../constants";
+import { jsonSocketClientMessages } from "../../socket-client-events";
 import { prepareJsonToUi } from "../../support/prepare-json-to-ui";
 import { readFile } from "../../support/read-file";
-import { jsonSocketClientMessages } from "../socket-client-events";
 
 interface getJSONI {
   socket: Socket;

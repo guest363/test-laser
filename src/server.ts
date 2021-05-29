@@ -1,19 +1,19 @@
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
+import { IO_PATH } from "./constants";
 import { routerJSON } from "./moduleJSON/router";
 
 export const app = express();
 const httpServer = http.createServer(app);
 
 export const SOCKET = new Server(httpServer, {
-  path: "/backend",
+  path: IO_PATH,
 });
 
 SOCKET.on("connection", (socket) => {
   const createEndPoints = () => {
     socket.on("json", (req) => routerJSON(req, socket));
-    
   };
   try {
     createEndPoints();
