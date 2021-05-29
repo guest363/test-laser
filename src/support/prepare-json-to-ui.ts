@@ -1,18 +1,10 @@
-interface relationI {
-  name: string;
-  value: string;
-  measureUnit: string;
-}
-interface prepareJsonExportI extends relationI {
-  description: string;
-  relations?: relationI[];
-}
+import type { prepareJsonExportI } from "../moduleJSON/types/json-parce";
 
 /**
  * Парсит JSON string в вид пригодный
  * для отображения в UI
  */
-export const prepareJson = (
+export const prepareJsonToUi = (
   jsonString: string
 ): prepareJsonExportI[] | null => {
   const parcedObject = JSON.parse(jsonString) as object;

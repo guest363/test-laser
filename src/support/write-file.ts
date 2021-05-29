@@ -1,7 +1,7 @@
 import fs from "fs";
 import { checkIsFileExist } from "./check-is-file-exist";
 
-export const readFile = async (path: string) => {
+export const writeFile = async (path: string, data) => {
   checkIsFileExist(path);
-  return await fs.promises.readFile(path, "utf8");
+  return await fs.promises.writeFile(path, data);
 };
