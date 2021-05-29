@@ -11,12 +11,16 @@ let oldUiState = "";
  * новый UI стейт при каждом его изменении
  */
 export const watchToFile = (socket: Socket) => {
+  console.log("Start watch to file " + DB);
+  
   if (!fs.existsSync(DB)) {
     errorAction(`Cant't watch to file`);
   }
   let fsWait = false;
 
   fs.watch(DB, async (event, filename) => {
+    console.log(event);
+
     if (filename && event === "change" && !fsWait) {
       /**
        * Избавиться от ложных срабатываний события change
@@ -32,7 +36,7 @@ export const watchToFile = (socket: Socket) => {
        * Шлем новый UI только если он действительно изменился
        */
       if (oldUiState !== newUiStateString) {
-        return socket.emit(jsonSocketClientMessages.update, newUiState);
+        return socket.emit(jsonSocketClientMessages.update, newUiStateString);
       }
       oldUiState = newUiStateString;
     }

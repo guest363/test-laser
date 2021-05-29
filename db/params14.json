@@ -6,7 +6,7 @@
             "measureUnit": "",
             "description": "Hardware Component Number",
             "sectionId": 1,
-            "type": 32,
+            "type": 34,
             "accessMask": 85,
             "access": "R"
         },
