@@ -1,7 +1,7 @@
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
-import { IO_PATH } from "./constants";
+import { IO_PATH, SERVER_PORT } from "./constants";
 import { routerJSON } from "./moduleJSON/router";
 
 export const app = express();
@@ -38,4 +38,12 @@ process.on("SIGTERM", function () {
 process.on("uncaughtException", function (error) {
   console.log("uncaughtException");
   console.error(error);
+});
+
+httpServer.listen(SERVER_PORT, () => {
+  console.log(
+    "Express server listening on port %d in %s mode",
+    SERVER_PORT,
+    app.get("env")
+  );
 });
