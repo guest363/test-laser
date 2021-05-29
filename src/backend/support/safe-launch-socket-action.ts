@@ -1,5 +1,5 @@
 import type { Socket } from "socket.io";
-import { COMMON_SOCKET_ERROR } from "../constants";
+import { COMMON_SOCKET_ERROR } from "../common-constants";
 
 const METHOD_ERROR = "Server communication method error";
 interface safeLaunchI {

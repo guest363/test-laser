@@ -1,6 +1,6 @@
 import fs from "fs";
 import type { Socket } from "socket.io";
-import { DB } from "../constants";
+import { DB } from "../server-constants";
 import { jsonSocketClientMessages } from "../socket-client-events";
 import { errorAction } from "../support/error-action";
 import { readFile } from "../support/read-file";
@@ -12,7 +12,7 @@ let oldUiState = "";
  */
 export const watchToFile = (socket: Socket) => {
   console.log("Start watch to file " + DB);
-  
+
   if (!fs.existsSync(DB)) {
     errorAction(`Cant't watch to file`);
   }

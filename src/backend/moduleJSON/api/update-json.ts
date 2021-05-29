@@ -1,5 +1,6 @@
 import type { Socket } from "socket.io";
-import { COMMON_SOCKET_ERROR, DB } from "../../constants";
+import { COMMON_SOCKET_ERROR } from "../../common-constants";
+import { DB } from "../../server-constants";
 import { jsonSocketClientMessages } from "../../socket-client-events";
 import { readFile } from "../../support/read-file";
 import { writeFile } from "../../support/write-file";

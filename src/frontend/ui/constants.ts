@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-import { IO_PATH, SERVER_PORT } from "../../backend/constants";
+import { SERVER_PORT, IO_PATH } from "../../backend/common-constants";
 
 const IO_URL = (() => {
   if (process.env.NODE_ENV == "development") {

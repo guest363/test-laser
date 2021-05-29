@@ -1,15 +1,6 @@
 {
     "params": [
-        {
-            "name": "HwNumber",
-            "value": "IP1210",
-            "measureUnit": "",
-            "description": "Hardware Component Number",
-            "sectionId": 1,
-            "type": 34,
-            "accessMask": 85,
-            "access": "R"
-        },
+
         {
             "name": "SwNumber",
             "value": "sramp18 1.0.0",
