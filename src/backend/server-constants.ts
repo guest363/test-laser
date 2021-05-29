@@ -1,5 +1,7 @@
-import path from "path";
 /**
  * Путь до нашей "базы"
  */
-export const DB = path.relative("db", "params14.json");
+export const DB = new URL(
+  "../../db/params14.json",
+  import.meta.url
+).pathname.slice(1);

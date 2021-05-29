@@ -7,7 +7,13 @@ import type { prepareJsonExportI } from "../moduleJSON/types/json-parce";
 export const prepareJsonToUi = (
   jsonString: string
 ): prepareJsonExportI[] | null => {
-  const parcedObject = JSON.parse(jsonString) as object;
+  let parcedObject;
+  try {
+    parcedObject = JSON.parse(jsonString) as object;
+  } catch (error) {
+    parcedObject = {};
+  }
+
   if (typeof parcedObject !== "object") {
     return null;
   }
