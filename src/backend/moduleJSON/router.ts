@@ -5,9 +5,7 @@ import { updateJSON } from "./api/update-json";
 
 export interface jsonSocketRrequest {
   action: "get_json" | "update_json";
-  message: string;
-  token: string;
-  blob?: ArrayBuffer;
+  message?: string;
 }
 type actionIterator = {
   [key in jsonSocketRrequest["action"]]: Function;

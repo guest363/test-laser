@@ -1,5 +1,5 @@
 <script lang="ts">
-    export const param = { name: '', description: '', measureUnit: '' };
+    export let param = { name: '', description: '', measureUnit: '' };
 </script>
 
 <style>
