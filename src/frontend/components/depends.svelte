@@ -60,7 +60,7 @@
   .wrapper_depends {
     background-color: var(--depends-bg-color);
     grid-area: 2 / 1 / 2 / 6;
-    grid-template-columns: 5fr 3fr 3fr 2fr 2fr;
+    grid-template-columns: var(--common-grid);
     grid-row-gap: 5px;
     display: grid;
     padding: 10px 0;
@@ -82,6 +82,7 @@
     color: var(--text-main-color);
     width: 100%;
     height: 12pt;
+    text-align: center;
   }
   .activeRow_icon {
     fill: var(--icon-active-color);

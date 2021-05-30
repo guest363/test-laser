@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    height: 60px;
+    min-height: 60px;
     padding: var(--default-padding);
   }
   .param__row1 {
@@ -22,12 +22,10 @@
     padding: 15px 0 5px 0;
     color: var(--text-main-color);
     width: 100%;
-    height: 14pt;
   }
   .param__row2 {
     font-family: "pr-regular", serif;
     font-size: 12pt;
-    height: 12pt;
     width: 100%;
     padding: 5px 0 10px 0;
     color: var(--text-second-color);

@@ -57,6 +57,8 @@
     --default-padding: 0 20px;
     --table--border: 1px #e6e6e6 solid;
 
+    --common-grid: 6fr 4fr 3fr 2fr 2fr;
+
 }
 
 body{

@@ -46,7 +46,7 @@
     height: 800px;
     overflow: scroll;
     overflow-x: hidden;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     background-color: var(--row-bg);
   }

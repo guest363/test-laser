@@ -44,6 +44,7 @@
 <style>
   .wrapper--value {
     padding: var(--default-padding);
+    margin: 0 auto;
   }
   .value {
     font-family: "pr-semibold", serif;

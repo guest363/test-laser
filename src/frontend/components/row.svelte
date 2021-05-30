@@ -27,12 +27,15 @@
 <style>
   .row {
     display: grid;
-    grid-template-columns: 5fr 3fr 3fr 2fr 2fr;
+    grid-template-columns: var(--common-grid);
     grid-template-rows: min-content;
     align-items: center;
     background-color: var(--row-bg);
     border-top: var(--table--border);
     border-bottom: var(--table--border);
+  }
+  .row:nth-child(2) {
+    justify-content: center;
   }
   .activeRow {
     background-color: var(--row-active-color);

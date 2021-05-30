@@ -19,5 +19,8 @@
     display: flex;
     align-items: center;
   }
+  .header-item:nth-child(2) {
+    justify-content: center;
+  }
 
 </style>
