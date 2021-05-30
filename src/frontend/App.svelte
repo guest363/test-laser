@@ -4,6 +4,7 @@
   import Header from "./components/header.svelte";
   import Param from "./components/param.svelte";
   import Row from "./components/row.svelte";
+  import Value from "./components/value.svelte";
   import { socket } from "./constants";
   import { list } from "./store/list.store";
 
@@ -26,7 +27,7 @@
   <Row><Header fields={["Параметр", "Значение", "15 МИН.", "24 Ч.", ""]} /></Row
   >
   {#each $list as param}
-    <Row><Param {param} /></Row>
+    <Row><Param {param} /><Value value={param?.value} /></Row>
   {/each}
 </div>
 

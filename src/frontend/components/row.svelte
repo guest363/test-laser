@@ -12,6 +12,7 @@
     display: grid;
     grid-template-columns: 4fr 2fr 1fr 1fr 2fr;
     grid-template-rows: min-content;
+    align-items: center;
   }
 
 </style>
