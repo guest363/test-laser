@@ -50,6 +50,8 @@
     outline: none;
     border: none;
     padding: 5pt 10pt;
+    border-radius: 5px;
+    min-width: 40px;
   }
   .value:focus {
     background-color: var(--header-bg);
