@@ -53,7 +53,7 @@
       </g>
     </svg>
   {/if}
-  {#if dependItems.length > 0 && !isExpand}
+  {#if dependItems?.length > 0 && !isExpand}
     <svg
       on:click={() => {
         isExpand = !isExpand;
@@ -84,7 +84,7 @@
     </svg>
   {/if}
 
-  {#if dependItems.length > 0 && isExpand}
+  {#if dependItems?.length > 0 && isExpand}
     <svg
       on:click={() => {
         isExpand = !isExpand;
@@ -115,7 +115,7 @@
   {/if}
 </div>
 
-{#if dependItems.length > 0 && isExpand}
+{#if dependItems?.length > 0 && isExpand}
   <Depends {dependItems} />
 {/if}
 

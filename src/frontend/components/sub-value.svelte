@@ -10,7 +10,7 @@
   /**
    * Считаем ширину инпута в зависимости от символов в нем
    */
-  let initWidth = (value.toLocaleString("ru").length + 1) * 7 + "pt";
+  let initWidth = (value.toLocaleString("ru")?.length + 1) * 7 + "pt";
   let activeItemGromStore = "";
   /**
    * Подписываемся на изменение стора, чтобы
@@ -45,11 +45,7 @@
       const newStore = storeCopy.map((item) => {
         if (item.name === activeItemGromStore) {
           const newRealtions = item.relations?.map((relationItem) => {
-            console.log(relationItem.name);
-            console.log(selfName);
-
             if (relationItem.name === selfName) {
-              console.log(relationItem.value);
               relationItem.value = inputValue;
             }
             return relationItem;

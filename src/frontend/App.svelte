@@ -14,7 +14,7 @@
 
   socket.on(jsonSocketClientMessages.update, (respons) => {
     /* Устновить нове значение UI */
-    list.set(respons);
+    list.set([...respons]);
   });
   socket.on(jsonSocketClientMessages.notify, (respons) => {
     /**

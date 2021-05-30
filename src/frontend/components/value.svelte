@@ -11,7 +11,7 @@
   /**
    * Считаем ширину инпута в зависимости от символов в нем
    */
-  let initWidth = (value.toLocaleString("ru").length + 1) * 7 + "pt";
+  let initWidth = (value.toLocaleString("ru")?.length + 1) * 7 + "pt";
   let activeItemGromStore = "";
   /**
    * Подписываемся на изменение стора, чтобы

@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "webpack serve",
     "serve": "tsc | node --es-module-specifier-resolution=node ./build/backend/server.js",
-    "build": "webpack build",
-    "start": "node --es-module-specifier-resolution=node ./build/index.js",
+    "build": "tsc | webpack build",
+    "start": "http-server ./public | node --es-module-specifier-resolution=node ./build/backend/server.js",
     "test": "tsc && SET NODE_ENV=test && node ./node_modules/mocha/bin/mocha --timeout 5000"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "http-server": "^0.12.3",
     "mini-css-extract-plugin": "^1.6.0",
     "style-loader": "^2.0.0",
     "svelte-loader": "^3.1.1",
