@@ -1,36 +1,34 @@
 <script lang="ts">
-import {
-onMount
-} from 'svelte';
-import { jsonSocketClientMessages } from '../backend/socket-client-events';
-import Param from "./components/param.svelte";
-import { socket } from "./constants";
-import { list } from "./store/list.store";
+  import { onMount } from "svelte";
+  import { jsonSocketClientMessages } from "../backend/socket-client-events";
+  import Header from "./components/header.svelte";
+  import Param from "./components/param.svelte";
+  import Row from "./components/row.svelte";
+  import { socket } from "./constants";
+  import { list } from "./store/list.store";
 
+  /* При монтировании запросить данные */
+  onMount(() => socket.emit("json", { action: "get_json" }));
 
-/* При монтировании запросить данные */
- onMount(() => socket.emit('json', {action: "get_json"}));
+  socket.on(jsonSocketClientMessages.update, (respons) => {
+    /* Устновить нове значение UI */
+    list.set(respons);
+  });
+  socket.on(jsonSocketClientMessages.notify, (respons) => {
+    /**
+     * Оповещаем пользователя об успехе операции
+     */
+  });
 
- socket.on(jsonSocketClientMessages.update, (respons) => {
-  /* Устновить нове значение UI */   
-  list.set(respons);
-  
-    });
-    socket.on(jsonSocketClientMessages.notify, (respons) => {
-  /**
-   * Оповещаем пользователя об успехе операции
-  */
-    });
 </script>
 
-<style>
-
-</style>
-
 <div class="App">
-  <header class="App-header">
-    {#each $list as param}
-    <Param {param}></Param>
+  <Row><Header fields={["Параметр", "Значение", "15 МИН.", "24 Ч.", ""]} /></Row
+  >
+  {#each $list as param}
+    <Row><Param {param} /></Row>
   {/each}
-  </header>
 </div>
+
+<style>
+</style>

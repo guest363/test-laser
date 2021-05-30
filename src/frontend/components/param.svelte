@@ -1,15 +1,35 @@
 <script lang="ts">
-    export let param = { name: '', description: '', measureUnit: '' };
-</script>
+  export let param = { name: "", description: "", measureUnit: "" };
 
-<style>
-  @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,300,400");
- .param{
-  font-family: "pr-regular", serif;
- }
-</style>
+</script>
 
 <div class="param">
   <span class="param__row1">{param.name}, {param.measureUnit}</span>
-  <span class="param__row1">{param.description}</span>
+  <span class="param__row2">{param.description}</span>
 </div>
+
+<style>
+  .param {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 60px;
+  }
+  .param__row1 {
+    font-family: "pr-semibold", serif;
+    font-size: 14pt;
+    padding: 15px 0 5px 0;
+    color: var(--text-main-color);
+    width: 100%;
+    height: 14pt;
+  }
+  .param__row2 {
+    font-family: "pr-regular", serif;
+    font-size: 12pt;
+    height: 12pt;
+    width: 100%;
+    padding: 5px 0 10px 0;
+    color: var(--text-second-color);
+  }
+
+</style>

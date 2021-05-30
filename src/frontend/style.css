@@ -3,5 +3,46 @@
     font-style: normal;
     font-weight: normal;
     src:
-      url('./assets/fonts/ProximaNova-Regular.woff') format('woff')
+      url('./assets/fonts/regular.woff') format('woff')
   }
+
+  @font-face {
+    font-family: 'pr-semibold';
+    font-style: normal;
+    font-weight: normal;
+    src:
+      url('./assets/fonts/semibold.woff') format('woff')
+  }
+
+  
+  @font-face {
+    font-family: 'pr-light';
+    font-style: normal;
+    font-weight: normal;
+    src:
+      url('./assets/fonts/light.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'pr-extrabld';
+    font-style: normal;
+    font-weight: normal;
+    src:
+      url('./assets/fonts/extrabld.woff') format('woff')
+  }
+
+:root {
+    --text-main-color: #000; 
+    --text-secont-color: #848484;
+    --text-value-color: #535353;
+
+    --header-color: #9f9f9f;
+
+    --bg-color: #edf4fb;
+    --header-bg: #efefef;
+
+    --scroll-color: #629dd6;
+    --scroll-bg-color: #d3d3d3;
+    --scroll-wide: 6px;
+
+}
