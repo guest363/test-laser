@@ -32,7 +32,11 @@
       ><Param {param} /><Value value={param?.value} selfName={param.name} />
       <div />
       <div />
-      <Edit dependItems={param?.relations} selfName={param.name} />
+      <Edit
+        dependItems={param?.relations}
+        selfName={param.name}
+        value={param?.value}
+      />
     </Row>
   {/each}
 </div>

@@ -22,7 +22,7 @@
 <div class="wrapper--value">
   <input
     class="value"
-    type="number"
+    type="text"
     style="width: {initWidth}"
     {value}
     class:activeRow_input={activeItemGromStore !== "" &&
