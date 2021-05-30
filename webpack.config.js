@@ -66,9 +66,6 @@ const config = {
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: {
-              url: false, // necessary if you use url('/path/to/some/asset.png|jpg|gif')
-            },
           },
         ],
       },
