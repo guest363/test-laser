@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'pr-regular';
+    font-style: normal;
+    font-weight: normal;
+    src:
+      url('./assets/fonts/ProximaNova-Regular.woff') format('woff')
+  }

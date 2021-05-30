@@ -6,7 +6,8 @@ import SveltePreprocess from "svelte-preprocess";
 const mode = process.env.NODE_ENV ?? "development";
 const isProduction = mode === "production";
 const isDevelopment = !isProduction;
-const __dirname = path.resolve();
+const __dirname = new URL("./", import.meta.url).pathname.slice(1);
+
 const config = {
   entry: {
     bundle: ["./src/frontend/index.ts"],
@@ -36,7 +37,7 @@ const config = {
               // Dev mode must be enabled for HMR to work!
               dev: isDevelopment,
             },
-            emitCss: isProduction,
+            emitCss: true,
             hotReload: isDevelopment,
             hotOptions: {
               // List of options and defaults: https://www.npmjs.com/package/svelte-loader-hot#usage
@@ -62,13 +63,20 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          /**
-           * MiniCssExtractPlugin doesn't support HMR.
-           * For developing, use 'style-loader' instead.
-           * */
-          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-          "css-loader",
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              url: false, // necessary if you use url('/path/to/some/asset.png|jpg|gif')
+            },
+          },
         ],
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        use: {
+          loader: "url-loader",
+        },
       },
       // Rule: TypeScript
       {
@@ -90,7 +98,7 @@ const config = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, "/build/frontend"),
+    contentBase: path.join(__dirname, "public"),
     port: 8080,
     host: "127.0.0.1",
     open: true,

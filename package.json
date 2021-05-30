@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "webpack serve",
     "serve": "tsc | node --es-module-specifier-resolution=node ./build/backend/server.js",
-    "build": "tsc && snowpack build",
+    "build": "webpack build",
     "start": "node --es-module-specifier-resolution=node ./build/index.js",
     "test": "tsc && SET NODE_ENV=test && node ./node_modules/mocha/bin/mocha --timeout 5000"
   },
@@ -30,12 +30,15 @@
   },
   "devDependencies": {
     "@tsconfig/svelte": "^1.0.12",
+    "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "style-loader": "^2.0.0",
     "svelte-loader": "^3.1.1",
     "svelte-preprocess": "^4.7.3",
     "ts-loader": "^9.2.2",
+    "url-loader": "^4.1.1",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"

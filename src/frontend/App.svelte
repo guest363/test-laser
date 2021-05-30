@@ -2,10 +2,11 @@
 import {
 onMount
 } from 'svelte';
-import { jsonSocketClientMessages } from "../../backend/socket-client-events";
+import { jsonSocketClientMessages } from '../backend/socket-client-events';
 import Param from "./components/param.svelte";
 import { socket } from "./constants";
 import { list } from "./store/list.store";
+
 
 /* При монтировании запросить данные */
  onMount(() => socket.emit('json', {action: "get_json"}));
@@ -23,7 +24,7 @@ import { list } from "./store/list.store";
 </script>
 
 <style>
-  /* css will go here */
+
 </style>
 
 <div class="App">

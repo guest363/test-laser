@@ -1,6 +1,6 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { CORS_URL } from "../frontend/ui/constants";
+import { CORS_URL } from "../frontend/constants";
 import { IO_PATH, SERVER_PORT } from "./common-constants";
 import { routerJSON } from "./moduleJSON/router";
 import { watchToFile } from "./moduleJSON/watch-to-file";
