@@ -26,7 +26,7 @@
         prevActiveItem = dependItem.name;
       }}
     >
-      <SubValue value={dependItem?.value} />
+      <SubValue value={dependItem?.value} selfName={dependItem.name} />
     </div>
     <div />
     <svg

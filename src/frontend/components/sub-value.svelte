@@ -1,6 +1,9 @@
 <script lang="ts">
+  import { get } from "svelte/store";
+  import { socket } from "../constants";
   import { activeItem } from "../store/activ-item.store";
   import { activeEdit } from "../store/active-edit.store";
+  import { list } from "../store/list.store";
 
   export let value = 0;
   export let selfName = "";
@@ -36,6 +39,30 @@
     on:blur={() => {
       activeEdit.set("");
     }}
+    on:change={(event) => {
+      const inputValue = event.target?.value;
+      const storeCopy = [...get(list)];
+      const newStore = storeCopy.map((item) => {
+        if (item.name === activeItemGromStore) {
+          const newRealtions = item.relations?.map((relationItem) => {
+            console.log(relationItem.name);
+            console.log(selfName);
+
+            if (relationItem.name === selfName) {
+              console.log(relationItem.value);
+              relationItem.value = inputValue;
+            }
+            return relationItem;
+          });
+          item.relations = newRealtions;
+        }
+        return item;
+      });
+      socket.emit("json", {
+        action: "update_json",
+        message: newStore,
+      });
+    }}
   />
 </div>
 
@@ -53,7 +80,6 @@
     border-radius: 5px;
     min-width: 40px;
   }
-
 
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,

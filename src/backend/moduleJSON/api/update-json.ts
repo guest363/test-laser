@@ -60,12 +60,24 @@ export const updateJSON = async (props: updateJSONI) => {
       ? (JSON.parse(props.data) as prepareJsonExportI[])
       : (props.data as unknown as prepareJsonExportI[]);
 
-  /** Мутируем распарсенный из файла JSON */
-  getFromUserNewData.forEach((element) => {
+  /**
+   * Функция для мутирования искомого обьекта на
+   * любом уровне вложенности
+   */
+  const muteteFn = (element) => {
     const { id, savedValue, topLevelProp } = placecesToReplace.get(
       element.name
     );
     parcedObject[topLevelProp][id] = { ...savedValue, value: element.value };
+  };
+  /** Мутируем распарсенный из файла JSON */
+  getFromUserNewData.forEach((element) => {
+    if (Array.isArray(element.relations)) {
+      element.relations.forEach((subElement) => {
+        muteteFn(subElement);
+      });
+    }
+    muteteFn(element);
   });
 
   try {
