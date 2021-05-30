@@ -1,5 +1,16 @@
 <script lang="ts">
+  import { activeEdit } from "../store/active-edit.store";
+
   export let dependItems = [];
+  export let selfName = "";
+  let activeItemGromStore = "";
+  /**
+   * Подписываемся на изменение стора, чтобы
+   * проставлять класс для выбранного эллемента
+   */
+  const subscription = activeEdit.subscribe((val) => {
+    activeItemGromStore = val;
+  });
 
 </script>
 
@@ -8,6 +19,8 @@
     class="icon icon_edit"
     version="1.1"
     id="Capa_1"
+    class:activeRow_icon={activeItemGromStore !== "" &&
+      activeItemGromStore === selfName}
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     x="0px"
@@ -28,21 +41,6 @@
         />
       </g>
     </g>
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
   </svg>
 
   <svg
@@ -68,21 +66,6 @@
         />
       </g>
     </g>
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
-    <g />
   </svg>
 </div>
 
@@ -100,6 +83,9 @@
   }
   .icon_down {
     width: 8pt;
+  }
+  .activeRow_icon {
+    fill: var(--icon-active-color);
   }
 
 </style>
