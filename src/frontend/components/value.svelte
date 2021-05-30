@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { get } from "svelte/store";
+  import { socket } from "../constants";
   import { activeItem } from "../store/activ-item.store";
   import { activeEdit } from "../store/active-edit.store";
   import { activeExpand } from "../store/active-expand";
+  import { list } from "../store/list.store";
 
   export let value = 0;
   export let selfName = "";
@@ -30,6 +33,20 @@
       activeItemGromStore === selfName}
     on:keydown={function () {
       initWidth = (this.value.length + 1) * 7 + "pt";
+    }}
+    on:change={(event) => {
+      const inputValue = event.target?.value;
+      const storeCopy = [...get(list)];
+      const newStore = storeCopy.map((item) => {
+        if (item.name === selfName) {
+          item.value = inputValue;
+        }
+        return item;
+      });
+      socket.emit("json", {
+        action: "update_json",
+        message: newStore,
+      });
     }}
     on:focus={() => {
       activeEdit.set(selfName);

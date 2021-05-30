@@ -16,7 +16,6 @@ export const getJSON = async (props: getJSONI) => {
 
   try {
     const dataToUi = prepareJsonToUi(data);
-    console.log(dataToUi);
     return props.socket.emit(jsonSocketClientMessages.update, dataToUi);
   } catch (error) {
     console.error(error);

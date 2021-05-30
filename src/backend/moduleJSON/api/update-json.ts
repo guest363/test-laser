@@ -65,7 +65,7 @@ export const updateJSON = async (props: updateJSONI) => {
     const { id, savedValue, topLevelProp } = placecesToReplace.get(
       element.name
     );
-    parcedObject[topLevelProp][id] = { ...savedValue, element };
+    parcedObject[topLevelProp][id] = { ...savedValue, value: element.value };
   });
 
   try {
