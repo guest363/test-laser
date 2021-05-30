@@ -29,7 +29,6 @@
     <svg
       class="icon icon_edit"
       version="1.1"
-      id="Capa_1"
       class:activeRow_icon={activeItemFromStore_edit !== "" &&
         activeItemFromStore_edit === selfName}
       xmlns="http://www.w3.org/2000/svg"

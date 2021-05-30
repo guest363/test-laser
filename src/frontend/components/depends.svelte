@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Value from "./value.svelte";
+  import SubValue from "./sub-value.svelte";
 
   export let dependItems = [];
   let activeItem = "";
@@ -26,13 +26,12 @@
         prevActiveItem = dependItem.name;
       }}
     >
-      <Value value={dependItem?.value} />
+      <SubValue value={dependItem?.value} />
     </div>
     <div />
     <svg
       class="icon icon_edit"
       version="1.1"
-      id="Capa_1"
       class:activeRow_icon={activeItem !== "" && dependItem.name === activeItem}
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"

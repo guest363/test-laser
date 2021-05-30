@@ -1,7 +1,6 @@
 <script lang="ts">
   import { activeItem } from "../store/activ-item.store";
   import { activeEdit } from "../store/active-edit.store";
-  import { activeExpand } from "../store/active-expand";
 
   export let value = 0;
   export let selfName = "";
@@ -33,7 +32,6 @@
     }}
     on:focus={() => {
       activeEdit.set(selfName);
-      activeExpand.set("");
     }}
     on:blur={() => {
       activeEdit.set("");
@@ -55,10 +53,7 @@
     border-radius: 5px;
     min-width: 40px;
   }
-  .value:focus {
-    background-color: var(--header-bg);
-    color: var(--text-main-color);
-  }
+
 
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
