@@ -4,9 +4,11 @@
 
   export let dependItems = [];
   export let selfName = "";
-  
+
   let activeItem = "";
-  let prevActiveItem = "";
+  activeEdit.subscribe((val) => {
+    activeItem = val;
+  });
 
 </script>
 
@@ -20,13 +22,7 @@
     </div>
     <div
       on:click={() => {
-        activeItem =
-          activeItem === ""
-            ? dependItem.name
-            : prevActiveItem === activeItem
-            ? dependItem.name
-            : "";
-        prevActiveItem = dependItem.name;
+        activeEdit.set(dependItem.name);
       }}
     >
       <SubValue value={dependItem?.value} selfName={dependItem.name} />
@@ -35,8 +31,9 @@
     <svg
       class="icon icon_edit"
       version="1.1"
-      on:click={() => {
-        activeEdit.set(selfName);
+      on:click={(event) => {
+        event.stopPropagation();
+        activeEdit.set(dependItem.name);
       }}
       class:activeRow_icon={activeItem !== "" && dependItem.name === activeItem}
       xmlns="http://www.w3.org/2000/svg"

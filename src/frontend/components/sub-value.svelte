@@ -11,13 +11,19 @@
    * Считаем ширину инпута в зависимости от символов в нем
    */
   let initWidth = (value.toLocaleString("ru")?.length + 1) * 7 + "pt";
-  let activeItemGromStore = "";
+  let activeItemFromStore = "";
+  let ref;
   /**
    * Подписываемся на изменение стора, чтобы
    * проставлять класс для выбранного эллемента
    */
-  const subscription = activeItem.subscribe((val) => {
-    activeItemGromStore = val;
+  activeItem.subscribe((val) => {
+    activeItemFromStore = val;
+  });
+  activeEdit.subscribe((val) => {
+    if (val === selfName) {
+      ref?.focus();
+    }
   });
 
 </script>
@@ -28,8 +34,8 @@
     type="text"
     style="width: {initWidth}"
     {value}
-    class:activeRow_input={activeItemGromStore !== "" &&
-      activeItemGromStore === selfName}
+    class:activeRow_input={activeItemFromStore !== "" &&
+      activeItemFromStore === selfName}
     on:keydown={function () {
       initWidth = (this.value.length + 1) * 7 + "pt";
     }}
@@ -39,11 +45,12 @@
     on:blur={() => {
       activeEdit.set("");
     }}
+    bind:this={ref}
     on:change={(event) => {
       const inputValue = event.target?.value;
       const storeCopy = [...get(list)];
       const newStore = storeCopy.map((item) => {
-        if (item.name === activeItemGromStore) {
+        if (item.name === activeItemFromStore) {
           const newRealtions = item.relations?.map((relationItem) => {
             if (relationItem.name === selfName) {
               relationItem.value = inputValue;

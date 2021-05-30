@@ -28,6 +28,10 @@
   {#if value}
     <svg
       class="icon icon_edit"
+      on:click={(event) => {
+        event.stopPropagation();
+        activeEdit.set(selfName);
+      }}
       version="1.1"
       class:activeRow_icon={activeItemFromStore_edit !== "" &&
         activeItemFromStore_edit === selfName}
@@ -55,7 +59,7 @@
   {/if}
   {#if dependItems?.length > 0 && !isExpand}
     <svg
-      on:click={() => {
+      on:click={(event) => {
         isExpand = !isExpand;
         activeExpand.set(selfName);
       }}
@@ -116,7 +120,7 @@
 </div>
 
 {#if dependItems?.length > 0 && isExpand}
-  <Depends {dependItems}  selfName={selfName}/>
+  <Depends {dependItems} {selfName} />
 {/if}
 
 <style>

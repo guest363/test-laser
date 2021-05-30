@@ -18,9 +18,11 @@
    * Подписываемся на изменение стора, чтобы
    * проставлять класс для выбранного эллемента
    */
-  const subscription = activeItem.subscribe((val) => {
+  activeItem.subscribe((val) => {
     activeItemGromStore = val;
-    if (selfName === activeItemGromStore) {
+  });
+  activeEdit.subscribe((val) => {
+    if (selfName === val) {
       ref?.focus();
     }
   });
