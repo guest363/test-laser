@@ -1,18 +1,25 @@
 <script lang="ts">
   import { activeEdit } from "../store/active-edit.store";
+  import { activeExpand } from "../store/active-expand";
   import Depends from "./depends.svelte";
 
   export let dependItems = [];
   export let value = null;
   export let selfName = "";
   let isExpand = false;
-  let activeItemGromStore = "";
+  let activeItemFromStore_edit = "";
+
   /**
    * Подписываемся на изменение стора, чтобы
    * проставлять класс для выбранного эллемента
    */
-  const subscription = activeEdit.subscribe((val) => {
-    activeItemGromStore = val;
+  activeEdit.subscribe((val) => {
+    activeItemFromStore_edit = val;
+  });
+  activeExpand.subscribe((val) => {
+    if (val !== selfName) {
+      isExpand = false;
+    }
   });
 
 </script>
@@ -23,8 +30,8 @@
       class="icon icon_edit"
       version="1.1"
       id="Capa_1"
-      class:activeRow_icon={activeItemGromStore !== "" &&
-        activeItemGromStore === selfName}
+      class:activeRow_icon={activeItemFromStore_edit !== "" &&
+        activeItemFromStore_edit === selfName}
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       x="0px"
@@ -51,6 +58,7 @@
     <svg
       on:click={() => {
         isExpand = !isExpand;
+        activeExpand.set(selfName);
       }}
       class="icon icon_down"
       version="1.1"
