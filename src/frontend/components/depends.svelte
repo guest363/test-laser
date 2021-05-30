@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { activeEdit } from "../store/active-edit.store";
   import SubValue from "./sub-value.svelte";
 
   export let dependItems = [];
+  export let selfName = "";
+  
   let activeItem = "";
   let prevActiveItem = "";
 
@@ -32,6 +35,9 @@
     <svg
       class="icon icon_edit"
       version="1.1"
+      on:click={() => {
+        activeEdit.set(selfName);
+      }}
       class:activeRow_icon={activeItem !== "" && dependItem.name === activeItem}
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"

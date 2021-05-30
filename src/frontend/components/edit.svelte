@@ -116,7 +116,7 @@
 </div>
 
 {#if dependItems?.length > 0 && isExpand}
-  <Depends {dependItems} />
+  <Depends {dependItems}  selfName={selfName}/>
 {/if}
 
 <style>

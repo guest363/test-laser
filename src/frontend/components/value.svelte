@@ -13,12 +13,16 @@
    */
   let initWidth = (value.toLocaleString("ru")?.length + 1) * 7 + "pt";
   let activeItemGromStore = "";
+  let ref;
   /**
    * Подписываемся на изменение стора, чтобы
    * проставлять класс для выбранного эллемента
    */
   const subscription = activeItem.subscribe((val) => {
     activeItemGromStore = val;
+    if (selfName === activeItemGromStore) {
+      ref?.focus();
+    }
   });
 
 </script>
@@ -55,6 +59,7 @@
     on:blur={() => {
       activeEdit.set("");
     }}
+    bind:this={ref}
   />
 </div>
 
