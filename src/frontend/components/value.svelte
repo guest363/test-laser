@@ -7,17 +7,22 @@
 
 </script>
 
-<input
-  class="value"
-  type="number"
-  style="width: {initWidth}"
-  {value}
-  on:keydown={function () {
-    initWidth = (this.value.length + 1) * 7 + "pt";
-  }}
-/>
+<div class="wrapper--value">
+  <input
+    class="value"
+    type="number"
+    style="width: {initWidth}"
+    {value}
+    on:keydown={function () {
+      initWidth = (this.value.length + 1) * 7 + "pt";
+    }}
+  />
+</div>
 
 <style>
+  .wrapper--value {
+    padding: var(--default-padding);
+  }
   .value {
     font-family: "pr-semibold", serif;
     font-size: 14pt;

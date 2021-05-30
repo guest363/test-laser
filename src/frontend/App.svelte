@@ -32,4 +32,26 @@
 </div>
 
 <style>
+  .App {
+    height: 800px;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--row-bg);
+  }
+
+  .App::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 6px;
+  }
+
+  .App::-webkit-scrollbar-track {
+    background-color: var(--scroll-bg-color);
+  }
+
+  .App::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-color);
+  }
+
 </style>

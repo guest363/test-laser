@@ -14,6 +14,7 @@
     align-items: center;
     flex-wrap: wrap;
     height: 60px;
+    padding: var(--default-padding);
   }
   .param__row1 {
     font-family: "pr-semibold", serif;

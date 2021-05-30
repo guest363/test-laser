@@ -15,6 +15,9 @@
     color: var(--header-color);
     height: 30px;
     background-color: var(--header-bg);
+    padding: var(--default-padding);
+    display: flex;
+    align-items: center;
   }
 
 </style>

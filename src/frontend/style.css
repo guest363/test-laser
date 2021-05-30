@@ -40,9 +40,18 @@
 
     --bg-color: #edf4fb;
     --header-bg: #efefef;
+    --row-bg: #fff;
 
     --scroll-color: #629dd6;
     --scroll-bg-color: #d3d3d3;
     --scroll-wide: 6px;
 
+    --default-padding: 0 20px;
+    --table--border: 1px #e6e6e6 solid;
+
+}
+
+body{
+    background-color: #b5b6b6;
+    
 }
