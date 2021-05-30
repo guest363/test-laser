@@ -9,4 +9,4 @@ const IO_URL = (() => {
 })();
 
 export const socket = io(IO_URL, { path: IO_PATH });
-export const CORS_URL = "http://127.0.0.1:8080";
+export const CORS_URL = "http://localhost:8080";
