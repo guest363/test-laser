@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { jsonSocketClientMessages } from "../backend/socket-client-events";
+import Edit from "./components/edit.svelte";
   import Header from "./components/header.svelte";
   import Param from "./components/param.svelte";
   import Row from "./components/row.svelte";
@@ -27,7 +28,13 @@
   <Row><Header fields={["Параметр", "Значение", "15 МИН.", "24 Ч.", ""]} /></Row
   >
   {#each $list as param}
-    <Row><Param {param} /><Value value={param?.value} /></Row>
+    <Row
+      ><Param {param} /><Value value={param?.value} />
+      <div />
+      <div />
+      <Edit dependItems={param?.relations}></Edit>
+      </Row
+    >
   {/each}
 </div>
 
